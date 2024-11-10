@@ -181,11 +181,15 @@ p {
 }
 .highlight {
     color: var(--green-color);
-    text-shadow: 0 0 3px var(--green-color), 0 0 6px var(--green-color);
+
 }
 .typing-effect {
     display: inline;
+    height: 3rem; /* Adjust this height as needed to fit your text */
+    line-height: 1.5; /* Optional: Adjust line-height for better vertical spacing */
+
 }
+
 @keyframes blink {
     0%, 100% {
         opacity: 1;
