@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life of Kiran</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <div class="menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="menu-items">
+        <span class="close-menu" onclick="toggleMenu()">X</span>
+        <a href="#about">About</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#family">Family</a>
+        <a href="#friends">Friends</a>
+        <a href="#career">Career</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="menu-overlay" onclick="toggleMenu()"></div>
+    <main>
+        <video autoplay loop muted playsinline class="meme">
+            <source src="memes/heythere.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <header></header> <!-- Header with typing effect -->
+        <a href="#" style="display: block; margin: 1rem 0;"></a> <!-- Blank link for separation -->
+        <p><span class="typing-effect"></span></p> <!-- Paragraph with typing effect -->
+    </main>
+    <footer>
+        <span class="pardon-footer">Pardon the mess—this site is still a work in progress!</span><br>
+        &copy; 2024 Life of Kiran - Keep it real!
+    </footer>
+    <div class="scroll-top-btn" onclick="scrollToTop()">↑</div>
+    <div class="loading-spinner"></div>
+
+    <!-- Particles.js Script -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

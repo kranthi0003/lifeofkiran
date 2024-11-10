@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life of Kiran</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Fira Code', monospace;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        header {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #66E066; /* Lighter green */
+            margin: 1rem 0;
+            display: inline;
+            height: 3rem;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideIn 1s forwards;
+        }
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .menu {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            cursor: pointer;
+            z-index: 100;
+        }
+        .menu div {
+            width: 30px;
+            height: 3px;
+            background-color: #66E066; /* Lighter green */
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+        .menu.hidden {
+            display: none;
+        }
+        .menu-items {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #000;
+            border-right: 1px solid #66E066; /* Lighter green */
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 1rem;
+            transition: left 0.3s ease;
+        }
+        .menu-items.show {
+            left: 0;
+        }
+        .menu-items a {
+            position: relative;
+            color: #66E066; /* Lighter green */
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            width: 100%;
+            display: block;
+            transition: color 0.3s, transform 0.3s;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        .menu-items.show a {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .menu-items a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #80FF80; /* Softer green for underline */
+            transition: width 0.3s;
+        }
+        .menu-items a:hover {
+            color: #80FF80; /* Softer green on hover */
+            transform: translateX(10px);
+        }
+        .menu-items a:hover::after {
+            width: 100%;
+        }
+        .menu-items.show a:nth-child(1) { transition-delay: 0.1s; }
+        .menu-items.show a:nth-child(2) { transition-delay: 0.2s; }
+        .menu-items.show a:nth-child(3) { transition-delay: 0.3s; }
+        .menu-items.show a:nth-child(4) { transition-delay: 0.4s; }
+        .menu-items.show a:nth-child(5) { transition-delay: 0.5s; }
+        .menu-items.show a:nth-child(6) { transition-delay: 0.6s; }
+        .close-menu {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: #66E066; /* Lighter green */
+            cursor: pointer;
+        }
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s;
+            z-index: 98;
+        }
+        .menu-items.show + .menu-overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+        p {
+            font-size: 1rem;
+            max-width: 600px;
+            line-height: 1.4;
+            margin: 0.5rem 0;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            height: 3.5rem;
+        }
+        .highlight {
+            color: #66E066; /* Lighter green */
+            text-shadow: 0 0 5px #66E066, 0 0 10px #66E066;
+        }
+        .typing-effect {
+            display: inline;
+        }
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background-color: #66E066; /* Lighter green */
+            animation: blink 0.7s step-end infinite;
+            margin-left: 2px;
+        }
+        video {
+            margin-bottom: 1rem;
+            width: 90%;
+            max-width: 400px;
+            height: auto;
+            border: 4px solid;
+            border-image: linear-gradient(45deg, #66E066, #0f0) 1;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(102, 224, 102, 0.3);
+        }
+        footer {
+            background-color: #111;
+            font-size: 0.8rem;
+            color: #66E066; /* Lighter green */
+            padding: 1rem;
+        }
+        .pardon-footer {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #66E066; /* Lighter green */
+            color: #000;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102, 224, 102, 0.3);
+            transition: transform 0.3s;
+        }
+        .scroll-top-btn:hover {
+            transform: scale(1.1);
+        }
+        .loading-spinner {
+            position: fixed;
+            top: 20px; /* Positioned at the top */
+            right: 20px; /* Positioned to the right */
+            width: 40px;
+            height: 40px;
+            border: 4px solid #66E066; /* Lighter green */
+            border-top: 4px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const menuItems = document.querySelector('.menu-items');
+            const menuOverlay = document.querySelector('.menu-overlay');
+            const menuIcon = document.querySelector('.menu');
+
+            if (menuItems.classList.contains('show')) {
+                menuItems.classList.remove('show');
+                menuOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    menuIcon.classList.remove('hidden');
+                    menuOverlay.style.visibility = 'hidden';
+                }, 300);
+            } else {
+                menuItems.classList.add('show');
+                menuOverlay.style.opacity = '1';
+                menuOverlay.style.visibility = 'visible';
+                menuIcon.classList.add('hidden');
+            }
+        }
+
+        // Typing effect function for header and paragraph
+        function typeEffect(element, text, speed, wordsPerChunk, callback) {
+            const words = text.split(" ");
+            let index = 0;
+            function type() {
+                if (index < words.length) {
+                    // Add words in chunks of `wordsPerChunk`
+                    element.innerHTML = words.slice(0, index + wordsPerChunk).join(" ") + " <span class='cursor'></span>";
+                    index += wordsPerChunk;
+                    setTimeout(type, speed);
+                } else {
+                    element.innerHTML = words.join(" "); // Remove cursor after typing is complete
+                    if (callback) callback(); // Call the next function if available
+                }
+            }
+            type();
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('header');
+            const paragraph = document.querySelector('.typing-effect');
+            const spinner = document.querySelector('.loading-spinner');
+
+            // Show spinner
+            spinner.style.display = 'block';
+
+            // Text for header and paragraph
+            const headerText = "Glad You Made It Here 🌟";
+            const paragraphText = `Yo! I'm <span class="highlight">Kiran</span>, and this site? Just a lil' corner of the internet where I share the <span class="highlight">highs</span>, the <span class="highlight">lows</span>, and all the "<span class="highlight">wtf?</span>" moments of my life. Stick around, have a laugh, and <span class="highlight">let’s not take life too seriously!</span> 😜`;
+
+            // Type the header one word at a time, then type the paragraph with 5-6 words at a time
+            typeEffect(header, headerText, 300, 1, () => {
+                typeEffect(paragraph, paragraphText, 500, 5, () => {
+                    // Hide spinner when typing is complete
+                    spinner.style.display = 'none';
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="menu-items">
+        <span class="close-menu" onclick="toggleMenu()">X</span>
+        <a href="#about">About</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#family">Family</a>
+        <a href="#friends">Friends</a>
+        <a href="#career">Career</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="menu-overlay" onclick="toggleMenu()"></div>
+    <main>
+        <video autoplay loop muted playsinline class="meme">
+            <source src="memes/heythere.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <header></header> <!-- Header with typing effect -->
+        <a href="#" style="display: block; margin: 1rem 0;"></a> <!-- Blank link for separation -->
+        <p><span class="typing-effect"></span></p> <!-- Paragraph with typing effect -->
+    </main>
+    <footer>
+        <span class="pardon-footer">Pardon the mess—this site is still a work in progress!</span><br>
+        &copy; 2024 Life of Kiran - Keep it real!
+    </footer>
+    <div class="scroll-top-btn" onclick="scrollToTop()">↑</div>
+    <div class="loading-spinner"></div>
+</body>
+</html>
