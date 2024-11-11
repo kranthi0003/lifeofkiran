@@ -253,6 +253,137 @@ footer {
     to { transform: rotate(360deg); }
 }
 
+.days-on-earth-dashboard {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: #66E066; /* Matching your green theme */
+    border-radius: 10px;
+    margin: 2rem auto;
+    width: 80%;
+    max-width: 800px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.stat-item {
+    font-size: 1.5rem;
+}
+
+.stat-item span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+
+/* Card Container for Three Cards */
+.card-container {
+    display: flex;
+    justify-content: space-around; /* Space between cards */
+    align-items: stretch; /* Make cards equal height */
+    margin-top: 2rem; /* Space above the cards */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Card Styles */
+.card {
+    width: 300px; /* Fixed width for each card */
+    height: 400px; /* Fixed height for each card */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    position: relative;
+    margin: 1rem; /* Space around each card */
+}
+
+.card:hover {
+    transform: rotateY(180deg);
+}
+
+/* Card Front and Back Styles */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    color: #fff;
+    font-family: 'Fira Code', monospace;
+}
+
+/* Front of the Card */
+.card-front {
+    background-color: #1a1a1a;
+    border: 2px solid var(--green-color);
+}
+
+.card-front h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--green-color);
+}
+
+/* Back of the Card */
+.card-back {
+    background-color: #0a0a0a;
+    border: 2px solid var(--green-color);
+    transform: rotateY(180deg);
+}
+
+.card-back h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--green-color);
+}
+
+.card-back ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.card-back li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column; /* Stack cards vertically on small screens */
+        align-items: center; /* Center the cards */
+    }
+    .card {
+        width: 80%; /* Adjust card width for smaller screens */
+    }
+}
+
+
+/* Keyframes for the fade-in and slide-up animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
 /* Media Queries for Mobile Compatibility */
 @media (max-width: 768px) {
     header {

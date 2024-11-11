@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Life of Kiran</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation Menu -->
+    <div class="menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="menu-items">
+        <span class="close-menu" onclick="toggleMenu()">X</span>
+        <a href="index.html">Home</a> <!-- Link back to the main page -->
+        <a href="#timeline">Timeline</a>
+        <a href="#family">Family</a>
+        <a href="#friends">Friends</a>
+        <a href="#career">Career</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="menu-overlay" onclick="toggleMenu()"></div>
+
+
+    <main>
+        <!-- Days on Earth Dashboard -->
+        <section class="days-on-earth-dashboard">
+            <h2>Days on Earth</h2>
+            <div class="stats">
+                <div class="stat-item">
+                    <span id="days"></span>
+                    <p>Days</p>
+                </div>
+                <div class="stat-item">
+                    <span id="hours"></span>
+                    <p>Hours</p>
+                </div>
+                <div class="stat-item">
+                    <span id="minutes"></span>
+                    <p>Minutes</p>
+                </div>
+                <div class="stat-item">
+                    <span id="seconds"></span>
+                    <p>Seconds</p>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Card Container for Three Cards -->
+        <section class="card-container">
+            <div class="card">
+                <div class="card-front">
+                    <h3>Card 1</h3>
+                    <p>Hover to see details!</p>
+                </div>
+                <div class="card-back">
+                    <h3>Details 1</h3>
+                    <ul>
+                        <li>Detail A</li>
+                        <li>Detail B</li>
+                        <li>Detail C</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-front">
+                    <h3>Card 2</h3>
+                    <p>Hover to see details!</p>
+                </div>
+                <div class="card-back">
+                    <h3>Details 2</h3>
+                    <ul>
+                        <li>Detail D</li>
+                        <li>Detail E</li>
+                        <li>Detail F</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-front">
+                    <h3>Card 3</h3>
+                    <p>Hover to see details!</p>
+                </div>
+                <div class="card-back">
+                    <h3>Details 3</h3>
+                    <ul>
+                        <li>Detail G</li>
+                        <li>Detail H</li>
+                        <li>Detail I</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    
+    <footer>
+        <span class="pardon-footer">This site is under Construction 🚧🛠️</span><br>
+        &copy; 2024 Life of Kiran - Keep it real!
+    </footer>
+
+    <!-- Particles.js Script -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

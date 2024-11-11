@@ -146,3 +146,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const birthDate = new Date('1999-09-03'); // Replace with your birthdate (YYYY-MM-DD)
+
+    function updateDashboard() {
+        const now = new Date();
+        const timeDiff = now - birthDate;
+
+        // Calculate days, hours, minutes, and seconds
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
+        const seconds = Math.floor((timeDiff / 1000) % 60);
+
+        // Update the DOM
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+        document.getElementById('seconds').textContent = seconds;
+    }
+
+    // Initial update
+    updateDashboard();
+
+    // Update every second
+    setInterval(updateDashboard, 1000);
+});
+
+
