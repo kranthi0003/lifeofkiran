@@ -152,6 +152,125 @@ header {
     visibility: visible;
 }
 
+/* Notification Tab Icon */
+.notification-tab {
+    position: fixed;
+    top: 20px;
+    right: 80px; /* Positioned left of the home button */
+    font-size: 1.5rem; /* Icon size */
+    color: var(--green-color); /* Use your site's theme color */
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+    z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.notification-tab:hover {
+    transform: scale(1.15); /* Enlarge the icon on hover */
+    color: #00ff88; /* Brighter color on hover */
+}
+
+/* Notification Content Box */
+.notification-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: rgba(10, 10, 10, 0.95); /* Dark background matching site theme */
+    color: #e0e0e0; /* Light grey text for readability */
+    padding: 10px 15px; /* Adjusted padding for a balanced look */
+    border-radius: 8px; /* Smooth corners */
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.3); /* Softer shadow */
+    font-size: 1rem; /* Adjusted text size */
+    max-width: 300px; /* Limit the maximum width */
+    min-width: 200px; /* Set a minimum width */
+    text-align: left;
+    z-index: 1000; /* Ensure it appears on top */
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Break long words if necessary */
+    transition: opacity 0.3s ease; /* Smooth transition for appearance */
+    opacity: 0; /* Start with opacity 0 for a fade-in effect */
+}
+
+/* Show the notification content on hover */
+.notification-tab:hover .notification-content {
+    display: block; /* Show the content */
+    opacity: 1; /* Fade in the content */
+}
+
+/* Add an arrow to the top of the content box */
+.notification-content::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid rgba(10, 10, 10, 0.95); /* Arrow color matching background */
+}
+
+.notification-content p {
+    margin: 6px 0; /* Add space between lines */
+    line-height: 1.2; /* Adjust line height for better readability */
+    font-size: 0.8rem !important; /* Ensure smaller text size */
+}
+.notification-link {
+    color: var(--green-color); /* Use your site's theme color for the link */
+    text-decoration: none; /* Remove the underline */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.notification-link:hover {
+    color: #00ff88; /* Brighter color on hover */
+    text-decoration: underline; /* Add underline on hover for clarity */
+}
+
+.new-update-badge {
+    position: absolute;
+    top: -5px; /* Move the badge higher */
+    right: -5px; /* Move the badge to the right */
+    background-color: rgb(8, 8, 8); /* Background color of the badge */
+    color: white; /* Text color */
+    font-size: 0.7rem; /* Font size of the number */
+    font-weight: bold; /* Make the number bold */
+    width: 18px; /* Width of the badge */
+    height: 18px; /* Height of the badge */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Make it a circle */
+    text-align: center; /* Center the text */
+    z-index: 10; /* Ensure it appears above other elements */
+    display: none; /* Hide the badge by default */
+}
+
+/* Show the badge when there is a new update */
+.notification-tab.has-new-update .new-update-badge {
+    display: flex; /* Show the badge as a flexbox */
+}
+
+
+
+.home-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem; /* Reduced icon size */
+    color: var(--green-color); /* Use your site's theme color */
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+    z-index: 1000; /* Make sure it's on top of other content */
+}
+
+.home-button:hover {
+    transform: scale(1.15); /* Slightly enlarge the icon on hover */
+    color: #00ff88; /* Slightly brighter green on hover */
+    text-shadow: 0 0 6px rgba(0, 255, 136, 0.5); /* Softer glow effect */
+}
+
+
 .prompt-animation {
     position: fixed;
     top: 10px;
@@ -200,29 +319,24 @@ main {
 video {
     margin-bottom: 1.5rem;
     width: 100%; /* Make video responsive */
-    max-width: 400px; /* Decreased the maximum width */
+    max-width: 400px; /* Adjust size as needed */
     height: auto;
     border-radius: 12px; /* Rounded corners for a modern look */
     border: 4px solid transparent; /* Transparent border for gradient effect */
     background-clip: padding-box;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    position: relative; /* For positioning */
+    position: relative;
     background-image: linear-gradient(135deg, var(--green-color), #00cc66); /* Gradient background */
     background-clip: border-box;
+    opacity: 0; /* Start with 0 opacity for fade-in effect */
+    transform: scale(0.95); /* Slightly scale down for a zoom-in effect */
+    transition: opacity 1s ease, transform 1s ease; /* Smooth transition for opacity and scale */
 }
 
-/* Add an outer glow effect for the video frame */
-video::before {
-    content: '';
-    position: absolute;
-    top: -6px;
-    left: -6px;
-    right: -6px;
-    bottom: -6px;
-    border-radius: 16px; /* Match the video border radius */
-    background: linear-gradient(135deg, var(--green-color), #00cc66); /* Gradient for the outer glow */
-    z-index: -1; /* Place behind the video */
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3); /* Soft outer glow */
+/* Trigger the transition when the page loads */
+body.loaded video {
+    opacity: 1; /* Fade in */
+    transform: scale(1); /* Scale up to original size */
 }
 
 p {
@@ -294,16 +408,17 @@ footer {
 }
 .loading-spinner {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    bottom: 20px; /* Place at the bottom */
+    right: 20px; /* Place on the right */
     width: 40px;
     height: 40px;
     border: 4px solid var(--green-color);
     border-top: 4px solid transparent;
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    display: none;
+    z-index: 1000; /* Ensure it appears on top of other content */
 }
+
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }

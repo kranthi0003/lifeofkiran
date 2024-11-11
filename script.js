@@ -39,15 +39,25 @@ function typeEffect(element, text, speed, wordsPerChunk, callback) {
 window.addEventListener('load', () => {
     const prompt = document.querySelector('.prompt-animation');
     const hamburgerMenu = document.querySelector('.menu');
+    const menuItems = document.querySelector('.menu-items');
 
     // Show the prompt after 3 seconds
     setTimeout(() => {
-        prompt.classList.add('show');
-    }, 4000); // 4000 ms = 4 seconds
+        if (!menuItems.classList.contains('show')) { // Only show if menu is not open
+            prompt.classList.add('show');
+        }
+    }, 3000); // 3000 ms = 3 seconds
 
     // Hide the prompt when the hamburger menu is clicked
     hamburgerMenu.addEventListener('click', () => {
         prompt.classList.remove('show'); // Hide the prompt
+    });
+
+    // Optionally, hide the prompt when the menu opens or closes
+    menuItems.addEventListener('transitionend', () => {
+        if (menuItems.classList.contains('show')) {
+            prompt.classList.remove('show'); // Hide the prompt if the menu is open
+        }
     });
 });
 
@@ -161,6 +171,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const birthDate = new Date('1999-09-03'); // Replace with your birthdate (YYYY-MM-DD)
 
@@ -189,3 +204,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    const notificationTab = document.querySelector('.notification-tab');
+    const newUpdateBadge = document.querySelector('.new-update-badge');
+
+    // Check if there are new updates
+    const hasNewUpdate = true; // Replace with your logic to check for updates
+
+    if (hasNewUpdate) {
+        notificationTab.classList.add('has-new-update'); // Show the badge
+    }
+
+    // Hide the badge when the notification tab is clicked
+    notificationTab.addEventListener('click', () => {
+        newUpdateBadge.style.display = 'none'; // Hide the badge
+    });
+});
