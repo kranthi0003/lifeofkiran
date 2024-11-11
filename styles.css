@@ -151,6 +151,44 @@ header {
     opacity: 1;
     visibility: visible;
 }
+
+.prompt-animation {
+    position: fixed;
+    top: 10px;
+    left: 80px;
+    font-size: 1.1rem;
+    color: var(--green-color); /* Use your site's theme color */
+    background-color: rgba(0, 0, 0, 0.85); /* Slightly darker background */
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px; /* Smooth rounded corners */
+    opacity: 0; /* Start with opacity 0 */
+    transform: translateY(-20px); /* Slide-in effect */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+    z-index: 1000; /* Make sure it's on top */
+    pointer-events: none; /* Prevent any interaction */
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4), 0 0 30px rgba(0, 255, 0, 0.3), 0 0 45px rgba(0, 255, 0, 0.2); /* Softer glowing effect */
+    border: 1px solid var(--green-color);
+}
+
+/* Softer pulsing glow effect */
+@keyframes subtleGlow {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), 0 0 30px rgba(0, 255, 0, 0.35), 0 0 45px rgba(0, 255, 0, 0.25);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.6), 0 0 40px rgba(0, 255, 0, 0.4), 0 0 60px rgba(0, 255, 0, 0.3);
+    }
+}
+
+.prompt-animation.show {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide down */
+    animation: subtleGlow 1.8s infinite; /* Apply the softer glow animation */
+}
+
+
+
 main {
     flex: 1;
     display: flex;
@@ -160,20 +198,38 @@ main {
     padding: 2rem 1rem; /* Adjusted for mobile */
 }
 video {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     width: 100%; /* Make video responsive */
-    max-width: 400px;
+    max-width: 400px; /* Decreased the maximum width */
     height: auto;
-    border: 4px solid;
-    border-image: linear-gradient(45deg, var(--green-color), #0f0) 1;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(102, 224, 102, 0.3);
+    border-radius: 12px; /* Rounded corners for a modern look */
+    border: 4px solid transparent; /* Transparent border for gradient effect */
+    background-clip: padding-box;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    position: relative; /* For positioning */
+    background-image: linear-gradient(135deg, var(--green-color), #00cc66); /* Gradient background */
+    background-clip: border-box;
 }
+
+/* Add an outer glow effect for the video frame */
+video::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 16px; /* Match the video border radius */
+    background: linear-gradient(135deg, var(--green-color), #00cc66); /* Gradient for the outer glow */
+    z-index: -1; /* Place behind the video */
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3); /* Soft outer glow */
+}
+
 p {
     font-size: 1rem;
-    max-width: 600px;
-    line-height: 1.4;
-    margin: 0.5rem 0;
+    max-width: 800px;
+    line-height: 1.7;
+    margin: 0.5rem auto;
     padding: 0 1rem;
     display: flex;
     align-items: center;
@@ -284,26 +340,29 @@ footer {
 /* Card Container for Three Cards */
 .card-container {
     display: flex;
-    justify-content: space-around; /* Space between cards */
+    justify-content: space-evenly; /* Evenly space the cards */
     align-items: stretch; /* Make cards equal height */
-    margin-top: 2rem; /* Space above the cards */
+    margin-top: 3rem; /* Add more space above the cards */
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 /* Card Styles */
 .card {
-    width: 300px; /* Fixed width for each card */
-    height: 400px; /* Fixed height for each card */
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 280px; /* Slightly narrower for a cleaner look */
+    height: 380px; /* Reduced height for balance */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2);
     transform-style: preserve-3d;
-    transition: transform 0.8s;
+    transition: transform 0.6s, box-shadow 0.3s, transform 0.3s;
     position: relative;
     margin: 1rem; /* Space around each card */
+    background: linear-gradient(135deg, #101010, #1d1d1d); /* Dark gradient for depth */
+    border: 1px solid #2a2a2a;
 }
 
 .card:hover {
-    transform: rotateY(180deg);
+    transform: translateY(-8px) rotateY(180deg); /* Lift effect on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Card Front and Back Styles */
@@ -312,39 +371,42 @@ footer {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 15px;
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1.5rem;
-    color: #fff;
+    color: #e0e0e0; /* Lighter color for better readability */
     font-family: 'Fira Code', monospace;
 }
 
 /* Front of the Card */
 .card-front {
-    background-color: #1a1a1a;
-    border: 2px solid var(--green-color);
+    background: linear-gradient(135deg, #1a1a1a, #242424);
+    border: 1px solid #333;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .card-front h3 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: 0.5rem;
-    color: var(--green-color);
+    color: var(--green-color); /* Use the site's green color */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Back of the Card */
 .card-back {
-    background-color: #0a0a0a;
-    border: 2px solid var(--green-color);
+    background: linear-gradient(135deg, #1a1a1a, #242424);
+    border: 1px solid #333;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
     transform: rotateY(180deg);
 }
 
 .card-back h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
-    color: var(--green-color);
+    color: var(--green-color); /* Use the site's green color */
 }
 
 .card-back ul {
@@ -355,7 +417,8 @@ footer {
 
 .card-back li {
     margin-bottom: 0.5rem;
-    font-size: 1rem;
+    font-size: 0.95rem; /* Slightly smaller font */
+    line-height: 1.4; /* Increase line spacing for readability */
 }
 
 /* Media Queries for Responsive Design */
@@ -365,7 +428,7 @@ footer {
         align-items: center; /* Center the cards */
     }
     .card {
-        width: 80%; /* Adjust card width for smaller screens */
+        width: 90%; /* Adjust card width for smaller screens */
     }
 }
 

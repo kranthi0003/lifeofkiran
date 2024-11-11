@@ -36,10 +36,24 @@ function typeEffect(element, text, speed, wordsPerChunk, callback) {
     type();
 }
 
-// Scroll to top function
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+window.addEventListener('load', () => {
+    const prompt = document.querySelector('.prompt-animation');
+    const hamburgerMenu = document.querySelector('.menu');
+
+    // Show the prompt after 3 seconds
+    setTimeout(() => {
+        prompt.classList.add('show');
+    }, 4000); // 4000 ms = 4 seconds
+
+    // Hide the prompt when the hamburger menu is clicked
+    hamburgerMenu.addEventListener('click', () => {
+        prompt.classList.remove('show'); // Hide the prompt
+    });
+});
+
+
+
+
 
 // Particles.js configuration
 // Particles.js configuration with lighter particles
@@ -138,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     spinner.style.display = 'block';
 
     const headerText = "Glad You Made It Here 🌟";
-    const paragraphText = `Yo! I'm <span class="highlight">Kiran</span>, and this site? Just a lil' corner of the internet where I share the <span class="highlight">highs</span>, the <span class="highlight">lows</span>, and all the "<span class="highlight">wtf?</span>" moments of my life. Stick around, have a laugh, and <span class="highlight">let’s not take life too seriously!</span> 😜`;
+    const paragraphText = `Welcome to lifeofkiran.com! This site is a glimpse into my journey, sharing stories, moments, and reflections. Check out the About section to learn more about what makes this digital space unique. Thanks for stopping by!`;
 
     typeEffect(header, headerText, 300, 1, () => {
         typeEffect(paragraph, paragraphText, 500, 5, () => {
