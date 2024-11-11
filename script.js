@@ -220,3 +220,12 @@ document.addEventListener('DOMContentLoaded', () => {
         newUpdateBadge.style.display = 'none'; // Hide the badge
     });
 });
+
+function scrollToDay(dayId) {
+    document.getElementById(dayId).scrollIntoView({ behavior: 'smooth' });
+}
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+

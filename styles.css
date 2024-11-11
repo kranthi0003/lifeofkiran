@@ -589,3 +589,204 @@ footer {
         height: 35px; /* Smaller button */
     }
 }
+
+
+.timeline-day {
+    background-color: rgba(10, 10, 10, 0.9); /* Dark background */
+    color: #e0e0e0; /* Light text color */
+    padding: 30px;
+    margin: 30px auto; /* Space between sections */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 6px 20px rgba(0, 255, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    width: 90%; /* Use more space on the page */
+    max-width: 1200px; /* Increase max width for larger screens */
+    transition: transform 0.3s ease; /* Smooth hover animation */
+}
+
+.day-header {
+    border-bottom: 1px solid #66E066;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    text-align: center; /* Center text horizontally */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.day-header h2 {
+    margin: 0; /* Remove default margin */
+    font-size: 2rem; /* Adjust size as needed */
+    color: var(--green-color); /* Theme color for the heading */
+}
+
+.day-header p {
+    margin: 5px 0 0; /* Add a small margin above the date */
+    font-size: 1.2rem; /* Adjust size as needed */
+    color: #b3b3b3; /* Lighter color for the date */
+}
+
+.day-content {
+    font-size: 1rem;
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between text, images, and videos */
+}
+
+/* Styling for the timeline images */
+.timeline-image,
+.timeline-video {
+    flex: 1; /* Make both items flexible to fill the space evenly */
+    max-width: 48%; /* Limit the maximum width */
+    height: 100%; /* Make the height 100% of the parent container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    border: 2px solid #66E066; /* Theme color border */
+    object-fit: cover; /* Ensure the media covers the area without distortion */
+}
+
+.timeline-day:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+
+
+/* Container for the photo and video */
+.media-container {
+    display: flex; /* Use flexbox to align items side by side */
+    gap: 20px; /* Space between the photo and video */
+    margin-top: 20px; /* Space above the media container */
+    justify-content: center; /* Center the items horizontally */
+    align-items: stretch; /* Make items the same height */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.timeline-navigation {
+    background-color: rgba(10, 10, 10, 0.8); /* Semi-transparent background */
+    color: #e0e0e0; /* Text color */
+    padding: 10px 20px; /* Padding for the menu */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 20px; /* Space below the menu */
+    text-align: center; /* Center the text */
+}
+
+.timeline-navigation ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    display: inline-flex; /* Display items in a horizontal row */
+    gap: 20px; /* Space between items */
+}
+
+.timeline-navigation a {
+    color: #66E066; /* Theme color for the links */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make text bold */
+    transition: color 0.3s; /* Smooth color change on hover */
+}
+
+.timeline-navigation a:hover {
+    color: #b3ffb3; /* Lighter green on hover */
+}
+
+/* Corner navigation bar for selecting a day */
+/* Corner navigation bar for selecting a day */
+.sticky-timeline-navigation {
+    position: fixed;
+    top: 10px;
+    right: 80px;
+    background-color: rgba(10, 10, 10, 0.9);
+    padding: 10px 15px;
+    border-radius: 8px;
+    z-index: 1000;
+    width: fit-content;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(102, 224, 102, 0.8); /* Initial glow */
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+    animation: shine 1.5s infinite alternate; /* Animation for the shine */
+}
+
+@keyframes shine {
+    from {
+        box-shadow: 0 0 10px rgba(102, 224, 102, 0.8), 0 0 20px rgba(102, 224, 102, 0.6);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(102, 224, 102, 1), 0 0 30px rgba(102, 224, 102, 0.8);
+    }
+}
+
+/* Trigger text for the dropdown */
+.dropdown-trigger {
+    font-size: 1.2rem;
+    color: #66E066;
+    transition: color 0.3s;
+}
+
+.dropdown-trigger:hover {
+    color: #b3ffb3;
+}
+/* Dropdown menu styling */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: rgba(10, 10, 10, 0.9);
+    border: 1px solid #66E066;
+    border-radius: 8px;
+    padding: 10px 0;
+    list-style: none;
+    margin-top: 5px;
+    text-align: left;
+    width: 200px;
+    z-index: 1000;
+}
+
+/* Show the menu when hovering over the trigger */
+.sticky-timeline-navigation:hover .dropdown-menu {
+    display: block;
+}
+
+/* Styling for individual menu items */
+.dropdown-menu li {
+    padding: 10px 15px;
+    color: #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu li:hover {
+    background-color: #66E066;
+    color: #1a1a1a;
+}
+
+
+footer {
+    position: relative; /* Make the footer container relative to position the button inside */
+    padding: 20px; /* Add padding to make it look nice */
+    text-align: center;
+    background-color: #111; /* Dark footer background */
+    color: #66E066; /* Text color */
+    z-index: 1;
+}
+
+.scroll-top-btn {
+    position: absolute; /* Absolute positioning inside the footer */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    background-color: #66E066; /* Theme color for the button */
+    color: #000; /* Dark color for the arrow */
+    border-radius: 50%; /* Circular button */
+    width: 40px; /* Width of the button */
+    height: 40px; /* Height of the button */
+    display: flex; /* Center the arrow inside the button */
+    align-items: center; /* Center the arrow vertically */
+    justify-content: center; /* Center the arrow horizontally */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 4px 10px rgba(102, 224, 102, 0.3); /* Subtle shadow for depth */
+    transition: transform 0.3s ease; /* Smooth scaling effect */
+    z-index: 2; /* Ensure it's on top */
+}
+
+.scroll-top-btn:hover {
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
