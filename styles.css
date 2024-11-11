@@ -424,6 +424,7 @@ footer {
     to { transform: rotate(360deg); }
 }
 
+/* Style for the Time on Earth Dashboard */
 .days-on-earth-dashboard {
     text-align: center;
     padding: 2rem 0;
@@ -431,24 +432,48 @@ footer {
     color: #66E066; /* Matching your green theme */
     border-radius: 10px;
     margin: 2rem auto;
-    width: 80%;
-    max-width: 800px;
+    width: 90%; /* Adjusted for larger sections */
+    max-width: 1000px; /* Wider dashboard */
+    box-shadow: 0px 4px 30px rgba(102, 224, 102, 0.5), 0px 10px 50px rgba(102, 224, 102, 0.3); /* Soft shadows for depth */
+    transform: translateY(5px); /* Gives the effect of floating */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.days-on-earth-dashboard:hover {
+    transform: translateY(-5px); /* Slight lift effect when hovered */
+    box-shadow: 0px 4px 60px rgba(102, 224, 102, 0.7), 0px 15px 70px rgba(102, 224, 102, 0.4); /* Glowing and enhanced shadow on hover */
+}
+
+.days-on-earth-dashboard h2 {
+    font-size: 2rem; /* Increased size */
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
 .stats {
     display: flex;
     justify-content: space-around;
     margin-top: 1rem;
+    padding: 1rem;
 }
 
 .stat-item {
     font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .stat-item span {
     display: block;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: bold;
+    color: #66E066;
+    /* Removed text-shadow (glowing effect) */
+}
+
+.stat-item p {
+    font-size: 1.1rem;
+    color: #e0e0e0;
 }
 
 
@@ -659,103 +684,6 @@ footer {
     justify-content: center; /* Center the items horizontally */
     align-items: stretch; /* Make items the same height */
     flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-}
-
-.timeline-navigation {
-    background-color: rgba(10, 10, 10, 0.8); /* Semi-transparent background */
-    color: #e0e0e0; /* Text color */
-    padding: 10px 20px; /* Padding for the menu */
-    border-radius: 8px; /* Rounded corners */
-    margin-bottom: 20px; /* Space below the menu */
-    text-align: center; /* Center the text */
-}
-
-.timeline-navigation ul {
-    list-style: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
-    display: inline-flex; /* Display items in a horizontal row */
-    gap: 20px; /* Space between items */
-}
-
-.timeline-navigation a {
-    color: #66E066; /* Theme color for the links */
-    text-decoration: none; /* Remove underline */
-    font-weight: bold; /* Make text bold */
-    transition: color 0.3s; /* Smooth color change on hover */
-}
-
-.timeline-navigation a:hover {
-    color: #b3ffb3; /* Lighter green on hover */
-}
-
-/* Corner navigation bar for selecting a day */
-/* Corner navigation bar for selecting a day */
-.sticky-timeline-navigation {
-    position: fixed;
-    top: 10px;
-    right: 80px;
-    background-color: rgba(10, 10, 10, 0.9);
-    padding: 10px 15px;
-    border-radius: 8px;
-    z-index: 1000;
-    width: fit-content;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(102, 224, 102, 0.8); /* Initial glow */
-    transition: box-shadow 0.3s ease;
-    cursor: pointer;
-    animation: shine 1.5s infinite alternate; /* Animation for the shine */
-}
-
-@keyframes shine {
-    from {
-        box-shadow: 0 0 10px rgba(102, 224, 102, 0.8), 0 0 20px rgba(102, 224, 102, 0.6);
-    }
-    to {
-        box-shadow: 0 0 20px rgba(102, 224, 102, 1), 0 0 30px rgba(102, 224, 102, 0.8);
-    }
-}
-
-/* Trigger text for the dropdown */
-.dropdown-trigger {
-    font-size: 1.2rem;
-    color: #66E066;
-    transition: color 0.3s;
-}
-
-.dropdown-trigger:hover {
-    color: #b3ffb3;
-}
-/* Dropdown menu styling */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: rgba(10, 10, 10, 0.9);
-    border: 1px solid #66E066;
-    border-radius: 8px;
-    padding: 10px 0;
-    list-style: none;
-    margin-top: 5px;
-    text-align: left;
-    width: 200px;
-    z-index: 1000;
-}
-
-/* Show the menu when hovering over the trigger */
-.sticky-timeline-navigation:hover .dropdown-menu {
-    display: block;
-}
-
-/* Styling for individual menu items */
-.dropdown-menu li {
-    padding: 10px 15px;
-    color: #e0e0e0;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.dropdown-menu li:hover {
-    background-color: #66E066;
-    color: #1a1a1a;
 }
 
 
