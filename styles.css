@@ -424,57 +424,87 @@ footer {
     to { transform: rotate(360deg); }
 }
 
-/* Style for the Time on Earth Dashboard */
-.days-on-earth-dashboard {
-    text-align: center;
-    padding: 2rem 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    color: #66E066; /* Matching your green theme */
+/* Flex container for side-by-side layout */
+.dashboard-container {
+    display: flex;
+    justify-content: space-around; /* Space between the two dashboards */
+    align-items: flex-start; /* Align items at the top */
+    margin: 1.5rem auto;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.days-on-earth-dashboard,
+.donation-fund-dashboard {
+    flex: 1; /* Make both dashboards take equal space */
+    margin: 0 1.5rem; /* Space between dashboards */
+    padding: 1rem;
+    text-align: center; /* Center text inside */
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #66E066;
     border-radius: 10px;
-    margin: 2rem auto;
-    width: 90%; /* Adjusted for larger sections */
-    max-width: 1000px; /* Wider dashboard */
-    box-shadow: 0px 4px 30px rgba(102, 224, 102, 0.5), 0px 10px 50px rgba(102, 224, 102, 0.3); /* Soft shadows for depth */
-    transform: translateY(5px); /* Gives the effect of floating */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    box-shadow: 0px 3px 15px rgba(102, 224, 102, 0.5), 0px 10px 50px rgba(102, 224, 102, 0.3);
+    transform: translateY(5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
 }
 
-.days-on-earth-dashboard:hover {
-    transform: translateY(-5px); /* Slight lift effect when hovered */
-    box-shadow: 0px 4px 60px rgba(102, 224, 102, 0.7), 0px 15px 70px rgba(102, 224, 102, 0.4); /* Glowing and enhanced shadow on hover */
-}
-
-.days-on-earth-dashboard h2 {
-    font-size: 2rem; /* Increased size */
+.days-on-earth-dashboard h2,
+.donation-fund-dashboard h2 {
+    font-size: 1.5rem;
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 20px;
+    text-align: center; /* Center text content */
 }
 
+/* Ensure content alignment within the stats section */
 .stats {
     display: flex;
     justify-content: space-around;
-    margin-top: 1rem;
     padding: 1rem;
+    width: 100%;
 }
 
 .stat-item {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0.5rem;
 }
 
 .stat-item span {
     display: block;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: #66E066;
-    /* Removed text-shadow (glowing effect) */
 }
 
 .stat-item p {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     color: #e0e0e0;
 }
+
+.donation-fund-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    justify-content: center; /* Center the content vertically */
+    width: 100%; /* Ensure the content spans the full width of the container */
+}
+
+.donation-fund-content p {
+    margin: 10px 0;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center; /* Ensure the text is centered */
+}
+
+.age-display {
+    text-align: center; /* Center the age text */
+}
+
 
 
 /* Card Container for Three Cards */

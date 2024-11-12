@@ -42,28 +42,62 @@
     </a>
 
     <main>
-        <!-- Days on Earth Dashboard -->
-        <section class="days-on-earth-dashboard">
-            <h2>Time on Earth 🌎</h2><br>
-            <div class="stats">
-                <div class="stat-item">
-                    <span id="days"></span>
-                    <p>Days</p>
+        <!-- Flex container to hold both dashboards side by side -->
+        <div class="dashboard-container">
+            <!-- Time on Earth Dashboard -->
+            <div class="days-on-earth-dashboard">
+                <h2>Time on Earth 🌍</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span id="days">9202</span>
+                        <p>Days</p>
+                    </div>
+                    <div class="stat-item">
+                        <span id="hours">3</span>
+                        <p>Hours</p>
+                    </div>
+                    <div class="stat-item">
+                        <span id="minutes">44</span>
+                        <p>Minutes</p>
+                    </div>
+                    <div class="stat-item">
+                        <span id="seconds">32</span>
+                        <p>Seconds</p>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <span id="hours"></span>
-                    <p>Hours</p>
-                </div>
-                <div class="stat-item">
-                    <span id="minutes"></span>
-                    <p>Minutes</p>
-                </div>
-                <div class="stat-item">
-                    <span id="seconds"></span>
-                    <p>Seconds</p>
-                </div>
+                <!-- New Age Element -->
+                <p class="age-display">Age: 25 Years</p>
             </div>
-        </section>
+
+            <!-- Donation Fund Dashboard -->
+            <!-- Donation Fund Dashboard with Timer -->
+            <!-- Donation Fund Dashboard with Timer -->
+            <div class="donation-fund-dashboard">
+                <h2>Donation Fund</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span id="fund-days">0</span>
+                        <p>Days</p>
+                    </div>
+                    <div class="stat-item">
+                        <span id="fund-hours">0</span>
+                        <p>Hours</p>
+                    </div>
+                    <div class="stat-item">
+                        <span id="fund-minutes">0</span>
+                        <p>Minutes</p>
+                    </div>
+                    <div class="stat-item">
+                        <span id="fund-seconds">0</span>
+                        <p>Seconds</p>
+                    </div>
+                </div>
+                <p><span id="donation-fund">₹ 0</span></p>
+            </div>
+
+        </div>
+
+
         <div><br><br><br><br></div>
 
         <!--Timeline days-->

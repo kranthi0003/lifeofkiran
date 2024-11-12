@@ -229,3 +229,52 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+
+// Set the start date and time (e.g., January 1, 2024)
+const startDate = new Date('November 12, 2024 00:00:00');
+
+// Function to update the donation fund timer
+function updateDonationFundTimer() {
+    // Get the current date and time
+    const currentDate = new Date();
+
+    // Calculate the difference in milliseconds and convert to seconds
+    const elapsedMilliseconds = currentDate - startDate;
+    const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
+
+    // Calculate days, hours, minutes, and seconds
+    let days = Math.floor(elapsedSeconds / (60 * 60 * 24));
+    let hours = Math.floor((elapsedSeconds % (60 * 60 * 24)) / (60 * 60));
+    let minutes = Math.floor((elapsedSeconds % (60 * 60)) / 60);
+    let seconds = elapsedSeconds % 60;
+
+    // Update the timer display for the donation fund
+    document.getElementById("fund-days").innerText = days;
+    document.getElementById("fund-hours").innerText = hours;
+    document.getElementById("fund-minutes").innerText = minutes;
+    document.getElementById("fund-seconds").innerText = seconds;
+
+    // Calculate the fund raised (1 INR per minute)
+    let fundRaised = minutes + (hours * 60) + (days * 24 * 60);
+
+    // Format the fundRaised amount in Indian numbering format
+    document.getElementById("donation-fund").innerText = "Funds-Raised: ₹" + formatIndianNumber(fundRaised);
+
+
+    // Schedule the next update in 1 second
+    setTimeout(updateDonationFundTimer, 1000); // 1 second in milliseconds
+}
+
+// Function to format numbers in the Indian numbering style
+function formatIndianNumber(number) {
+    let numStr = number.toString();
+    let lastThreeDigits = numStr.slice(-3);
+    let otherDigits = numStr.slice(0, -3);
+    if (otherDigits !== '') {
+        lastThreeDigits = ',' + lastThreeDigits;
+    }
+    return otherDigits.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThreeDigits;
+}
+
+// Start the donation fund timer as soon as the page loads
+updateDonationFundTimer();
