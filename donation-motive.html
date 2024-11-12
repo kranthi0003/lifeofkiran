@@ -1,9 +1,11 @@
+<!--Base for every html page-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life of Kiran</title>
+    <title>Donation Motive</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
     <!-- Link to external CSS file -->
@@ -25,6 +27,7 @@
     </div>
     <div class="menu-items">
         <span class="close-menu" onclick="toggleMenu()">X</span>
+        <a href="index.html">Home 🏠</a>
         <a href="mystory.html">MyStory 📖</a>
         <a href="timeline.html">Timeline ⏳</a>
         <a href="#interests">Interests 🎨</a>
@@ -35,36 +38,27 @@
         <a href="#site">Site 🕸️</a>
     </div>    
 
-    <!-- Add the prompt animation here -->
-    <div class="prompt-animation">← Check out the Site!</div>
-    <div class="menu-overlay" onclick="toggleMenu()"></div>
-
-    <!-- Notification Tab -->
-    <div class="notification-tab">
-        <i class="fas fa-bell"></i> <!-- FontAwesome bell icon -->
-        <span class="new-update-badge">1</span> <!-- New update badge with the number -->
-        <div class="notification-content">
-            <p>New Post: <a href="timeline.html" class="notification-link">Timeline</a></p>
-        </div>
-    </div>
-
 
     <a href="index.html" class="home-button" title="Home">
         <i class="fas fa-home"></i> <!-- FontAwesome home icon -->
     </a>
-    <main>
-        <video autoplay loop muted playsinline class="meme">
-            <source src="memes/heythere.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <header></header> <!-- Header with typing effect -->
-        <a href="#" style="display: block; margin: 1rem 0;"></a> <!-- Blank link for separation -->
-        <p><span class="typing-effect"></span></p> <!-- Paragraph with typing effect -->
-
-        <!-- Add a new class to this element -->
-        <div class="gap-space"></div>
-
+    
+    <main class="donation-motive-section">
+        <h1>Why the Donation Fund?</h1>
+        <p>Welcome to the Donation Fund initiative! This isn't just a number ticking up every minute. It's a commitment, a reminder, and a meaningful gesture towards a brighter future.</p>
+        
+        <h2>Our Purpose</h2>
+        <p>The idea is simple yet impactful: for every minute that passes, ₹1 is added to the fund. This fund symbolizes the value of time and how even small contributions can accumulate into something significant over the years.</p>
+        
+        <h2>Where Will the Money Go?</h2>
+        <p>When the fund reaches its milestones, the collected amount will be directed towards causes that matter — whether it's supporting education, aiding healthcare, or empowering local communities. Every rupee counts, and every contribution has the potential to change lives.</p>
+        
+        <h2>How Can You Get Involved?</h2>
+        <p>Stay tuned for updates and opportunities to contribute or suggest causes that resonate with you. Together, we can make a difference, one minute at a time.</p>
+        
+        <p>Thank you for being part of this journey. Your support and encouragement mean the world and are crucial in turning this vision into reality!</p>
     </main>
+        
 
     
     
@@ -73,7 +67,6 @@
         &copy; 100% Static Website - Keeping it simple!
     </footer>
     
-    <div class="loading-spinner"></div>
 
     <!-- Particles.js Script -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>

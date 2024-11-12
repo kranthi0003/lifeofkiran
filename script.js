@@ -231,7 +231,7 @@ function scrollToTop() {
 
 
 // Set the start date and time (e.g., January 1, 2024)
-const startDate = new Date('November 12, 2024 00:00:00');
+const startDate = new Date('November 11, 2024 22:20:38');
 
 // Function to update the donation fund timer
 function updateDonationFundTimer() {

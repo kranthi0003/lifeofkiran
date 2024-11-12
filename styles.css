@@ -76,7 +76,7 @@ header {
     width: 250px;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
-    border-right: 1px solid var(--green-color);
+    border-right: 1px solid rgb(189, 245, 190);
     z-index: 99;
     display: flex;
     flex-direction: column;
@@ -505,6 +505,29 @@ footer {
     text-align: center; /* Center the age text */
 }
 
+.question-mark {
+    position: absolute;
+    top: 10px; /* Adjust to position correctly within the dashboard */
+    right: 10px; /* Adjust to position correctly within the dashboard */
+    font-size: 1.5rem;
+    background-color: #66E066;
+    color: #000;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.question-mark a {
+    text-decoration: none;
+    color: #000; /* Adjust the color as needed */
+    font-weight: bold;
+}
 
 
 /* Card Container for Three Cards */
@@ -748,3 +771,57 @@ footer {
     transform: scale(1.1); /* Slightly enlarge the button on hover */
 }
 
+.story-content {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.milestone {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 0;
+    box-shadow: 0 4px 15px rgba(102, 224, 102, 0.3);
+}
+
+.milestone h3 {
+    color: #66E066;
+    margin-bottom: 0.5rem;
+}
+
+.reflections-section p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/*Donation-motive styling start*/
+
+.donation-motive-section {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: #e0e0e0;
+}
+
+.donation-motive-section h1 {
+    font-size: 2.5rem;
+    color: #66E066;
+    margin-bottom: 1rem;
+}
+
+.donation-motive-section h2 {
+    font-size: 1.8rem;
+    color: #66E066;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.donation-motive-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/*Donation-motive styling end*/

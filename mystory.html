@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life of Kiran</title>
+    <title>My Story</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
     <!-- Link to external CSS file -->
@@ -25,7 +25,7 @@
     </div>
     <div class="menu-items">
         <span class="close-menu" onclick="toggleMenu()">X</span>
-        <a href="mystory.html">MyStory 📖</a>
+        <a href="index.html">Home 🏠</a>
         <a href="timeline.html">Timeline ⏳</a>
         <a href="#interests">Interests 🎨</a>
         <a href="#family">Family 👨‍👩‍👧‍👦</a>
@@ -35,35 +35,29 @@
         <a href="#site">Site 🕸️</a>
     </div>    
 
-    <!-- Add the prompt animation here -->
-    <div class="prompt-animation">← Check out the Site!</div>
-    <div class="menu-overlay" onclick="toggleMenu()"></div>
-
-    <!-- Notification Tab -->
-    <div class="notification-tab">
-        <i class="fas fa-bell"></i> <!-- FontAwesome bell icon -->
-        <span class="new-update-badge">1</span> <!-- New update badge with the number -->
-        <div class="notification-content">
-            <p>New Post: <a href="timeline.html" class="notification-link">Timeline</a></p>
-        </div>
-    </div>
-
 
     <a href="index.html" class="home-button" title="Home">
         <i class="fas fa-home"></i> <!-- FontAwesome home icon -->
     </a>
+    
+    
     <main>
-        <video autoplay loop muted playsinline class="meme">
-            <source src="memes/heythere.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <header></header> <!-- Header with typing effect -->
-        <a href="#" style="display: block; margin: 1rem 0;"></a> <!-- Blank link for separation -->
-        <p><span class="typing-effect"></span></p> <!-- Paragraph with typing effect -->
+        <h1 class="page-title">My Story</h1>
+        <p class="welcome-message">Hi there! I'm Kiran, and this is a glimpse into my life’s journey. From childhood dreams to life-changing milestones, every moment has shaped me into the person I am today. Join me as I share my most treasured memories, lessons learned, and aspirations for the future.</p>
 
-        <!-- Add a new class to this element -->
-        <div class="gap-space"></div>
-
+        <h2 class="section-title">Life Milestones</h2>
+        <div class="milestone">
+            <h3>Day 1: September 3, 1999 - The Beginning</h3>
+            <p>It all started on a beautiful day in September. The world was new, and so was my adventure!</p>
+        </div>
+        <div class="milestone">
+            <h3>Day 365: First Birthday 🎂</h3>
+            <p>Turning one! A year of firsts, from my first steps to my first words. Surrounded by family and love, it was a day of celebration and joy.</p>
+        </div>
+        <div class="milestone">
+            <h3>Day 4000: Graduation Day 🎓</h3>
+            <p>A major milestone, marking the end of an incredible chapter and the beginning of endless possibilities.</p>
+        </div>
     </main>
 
     
@@ -73,7 +67,6 @@
         &copy; 100% Static Website - Keeping it simple!
     </footer>
     
-    <div class="loading-spinner"></div>
 
     <!-- Particles.js Script -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
